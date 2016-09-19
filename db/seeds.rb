@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Airport::delete_all
+Airport.create( [ {name: "SAD"},
+   {name: "LMN"},
+   {name: "RWD"},
+   {name: "JLS"},
+   {name: "PLA"},
+   {name: "ORW"},
+   {name: "HUT"},
+   {name: "HOP"},
+   {name: "LAT"}, ] )
