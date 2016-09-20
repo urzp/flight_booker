@@ -25,15 +25,20 @@ dates = ["Sun","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
 
  dates.each do |dat|
    airports.each_with_index do |air_from, i|
+     puts "air_from #{air_from}"
      airports[i+1..-1].each do |air_to|
        flight_time = (rand(120) + 120).minutes
 
        companis.each do |comp|
          f = Flight.new
+          #puts air_from
+         #f.from_airport = air_from
+         #f.to_airport = air_to
          f.id_takeoff = air_from.id
+         f.id_landing = air_to.id
          #f.flight_time = flight_time
          f.name = "#{comp} #{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
-         puts "Flight #{f}"
+         #puts "Flight #{f}"
          f.save
        end
      end
