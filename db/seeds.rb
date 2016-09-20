@@ -25,7 +25,7 @@ dates = ["Sun","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
 
  dates.each do |dat|
    airports.each_with_index do |air_from, i|
-     #puts "#{i}. air_from #{air_from}"
+     puts "#{i}. air_from #{air_from}"
      airports.each do |air_to|
        next if air_from == air_to
        flight_time = "#{rand(15)}:#{rand(5)}#{rand(9)}"
@@ -33,10 +33,10 @@ dates = ["Sun","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
        companis.each do |comp|
          f = Flight.new
           #puts air_from
-         #f.from_airport = air_from
-         #f.to_airport = air_to
-         f.id_takeoff = air_from.id
-         f.id_landing = air_to.id
+         f.from_airport = air_from
+         f.to_airport = air_to
+         #f.id_takeoff = air_from.id
+         #f.id_landing = air_to.id
          f.flight_time = flight_time
          f.name = "#{comp} #{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
          #puts "Flight #{f}"

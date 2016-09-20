@@ -1,0 +1,21 @@
+<%= form_tag flights_path, method: 'get' do %>
+<div>
+<p>
+<%= select_tag :from, options_for_select(@airports) %>
+Airport from</p>
+</div>
+<div style = "float: rigth">
+<p>
+<%= select_tag :to, options_for_select(@airports) %>
+Airport to</p>
+</div>
+<div >
+<p>
+<%= select_tag :tikets, options_for_select(@passengers) %>
+Passengers</p>
+</div>
+
+<%= select_date(Date.today, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'})%>
+
+<%= submit_tag "Search", :name => nil, class: "button" %>
+<% end %>
