@@ -20,7 +20,8 @@ Airport.create([ {name: "SAD"},
 
 airports = Airport.all
 companis = ['United', 'American', 'Lufthansa', 'Delta', 'Alaska Airlines']
-dates = ["Sun","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+dates = [1,2,3,4,5,6,7
+]
 
 
 
@@ -43,6 +44,8 @@ dates = ["Sun","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
            #f.id_landing = air_to.id
            f.flight_time = flight_time
            f.name = name
+           f.depart = "#{rand(24)}:#{rand(5)}#{rand(9)}"
+           f.week_day = dat
            #puts "Flight #{f}"
            f.save
        end

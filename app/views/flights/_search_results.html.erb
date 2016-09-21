@@ -2,24 +2,24 @@
 <thead>
   <tr>
     <th width = "50">Select</th>
-    <th width ="110">Flight #</th>
-    <th width ="150">Date</th>
-    <th width ="150">Departs</th>
+    <th width ="210">Flight</th>
     <th width ="110">From</th>
     <th width ="110">To</th>
+    <th width ="150">Date</th>
+    <th width ="150">Departs</th>
     <th width ="110">Duration</th>
   </tr>
 </thead>
  <% @flights.each do |flight| %>
   <tbody>
     <tr>
-      <td><%= radio_button_tag :flight_id, flight.id %></td>
-      <td><%= flight.name %></td>
-      <td></td>
-      <td></td>
-      <td><%= flight.from_airport.name %></td>
-      <td><%= flight.to_airport.name %></td>
-      <td><%= "#{flight.flight_time.hour}:#{flight.flight_time.min}"%></td>
+      <td align="center"><%= radio_button_tag :flight_id, flight.id %></td>
+      <td width ="210"><%= flight.name %></td>
+      <td align="center"><%= flight.from_airport.name %></td>
+      <td align="center"><%= flight.to_airport.name %></td>
+      <td align="center"><%= @date.strftime('%F') %></td>
+      <td align="center"><%= flight.depart %></td>
+      <td align="center"><%= "#{flight.flight_time.hour}:#{flight.flight_time.min}"%></td>
     </tr>
   </tbody>
 <% end %>
