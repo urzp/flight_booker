@@ -1,21 +1,21 @@
 <%= form_tag flights_path, method: 'get', autocomlete: 'on' do %>
 <div>
 <p>
-<%= select_tag :from, options_for_select(@airports) %>
+<%= select_tag :from, options_for_select(@airports, params[:from]) %>
 Airport from</p>
 </div>
 <div style = "float: rigth">
 <p>
-<%= select_tag :to, options_for_select(@airports) %>
+<%= select_tag :to, options_for_select(@airports, params[:to]) %>
 Airport to</p>
 </div>
 <div >
 <p>
-<%= select_tag :tikets, options_for_select(@passengers) %>
+<%= select_tag :tikets, options_for_select(@passengers, params[:tikets]) %>
 Passengers</p>
 </div>
 
-<%= select_date(Date.today, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'})%>
-
+<%= select_date(Date.today, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}) unless params[:date]  %>
+<%= select_date(@date, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}) if params[:date]  %>
 <%= submit_tag "Search", :name => nil, class: "button" %>
 <% end %>
