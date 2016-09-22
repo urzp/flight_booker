@@ -1,9 +1,10 @@
 <h1>Booking Page</h1>
 <fieldset>
   <legend>Trip Details</legend>
-  <h3>Flight #<%= @flight.name %></h3>
+  <h3>Flight # <%= @flight.name %></h3>
   <h3>
   <%= @flight.from_airport.name %> -> <%= @flight.to_airport.name %>
   </h3>
+  <h4>Date <%= @booking.date[0,10] %></h4>
 
 </fieldset>
