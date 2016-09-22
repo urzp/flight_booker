@@ -7,6 +7,7 @@ class FlightsController < ApplicationController
     #week_day = Date::DAYNAMES[date.wday]
     #@flights = Flight.first(10)
     @flights = Flight.where("id_takeoff = ? AND id_landing = ? AND week_day = ? " , params[:from], params[:to], @date.wday).order(:depart)
+    @flights = @flights.paginate(page:	params[:page])
     else
       @flights = Flight.paginate(page:	params[:page])
     end
