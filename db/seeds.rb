@@ -38,8 +38,8 @@ dates = [1,2,3,4,5,6,7
            #puts air_from
            f.from_airport = air_from
            f.to_airport = air_to
-           air_from.departing_flights << f
-           air_to.arriving_flights << f
+           #air_from.departing_flights << f
+           #air_to.arriving_flights << f
            #f.id_takeoff = air_from.id
            #f.id_landing = air_to.id
            f.flight_time = flight_time

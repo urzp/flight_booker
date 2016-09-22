@@ -20,10 +20,8 @@ ActiveRecord::Schema.define(version: 20160922054240) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "flight_id"
-    t.integer  "passanger_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "flights", force: :cascade do |t|
