@@ -1,4 +1,6 @@
 <%= form_tag new_booking_path, method: 'get', autocomlete: 'on' do %>
+<div >
+<%=	will_paginate	%>
 <table>
 <thead>
   <tr>
@@ -25,6 +27,8 @@
   </tbody>
 <% end %>
 </table>
+<%=	will_paginate	%>
+<div >
 <%= submit_tag "Select Flight", :name => nil, class: "button" %>
 <%= hidden_field_tag :tikets, params[:tikets] %>
 <%= hidden_field_tag :date, @date %>
