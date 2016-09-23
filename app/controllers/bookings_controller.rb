@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    puts " params ---->  #{params} "
     @booking = Booking.new(booking_params)
     if @booking.save
       #@booking.passengers.each { |p| PassengerMailer.thank_you_email(p).deliver! }
@@ -22,11 +21,14 @@ class BookingsController < ApplicationController
     end
   end
 
-
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
   private
    def booking_params
-     params.require(:booking).permit(:flight_id,
-                 :passengers_attributes => [:name, :email] )
+     params.require(:booking).permit(:flight_id, :date,
+     :passangers_attributes => [:name, :email] )
+
    end
 end

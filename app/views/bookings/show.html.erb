@@ -1,0 +1,20 @@
+<h1>Booking Confirmation</h1>
+
+<p>
+  Thank you for booking your flight with flight-booker.
+  Your confirmation # is <b><%= @booking.id %></b>.
+</p>
+
+<p>
+  Flight #<%= @booking.flight.name %>: <%= @booking.flight.from_airport.name %> ->
+  <%= @booking.flight.to_airport.name %> on
+  <%= @booking.date[1,9] %>
+  <%= @booking.flight.depart %>
+</p>
+
+<p>Pasangers</p>
+<ol>
+  <% @booking.passangers.each do |passanger| %>
+  <li><%= "#{passanger.name}  #{passanger.email}"  %></li>
+  <% end %>
+</ol>
