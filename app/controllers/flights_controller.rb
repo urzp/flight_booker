@@ -1,6 +1,8 @@
 class FlightsController < ApplicationController
   def index
     puts "params = #{params}"
+    @flights_xml = Flight.all
+
     if params[:date]
     @date = DateTime.parse("#{params[:date][:year]}-#{params[:date][:month]}-#{params[:date][:day]}" )
     #puts "date = #{date.wday.class}"
@@ -13,5 +15,13 @@ class FlightsController < ApplicationController
     end
     @airports = Airport.all.map{|a| [ a.name, a.id ] }
     @passengers = (1..4).map{|a| [ a, a ] }
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render xml: @flights_xml}
+      format.json { render json: @flights_xml }
+    end
+
   end
+
 end
