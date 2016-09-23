@@ -13,9 +13,16 @@ class BookingsController < ApplicationController
 
   def create
     puts " params ---->  #{params} "
-     @booking = Booking.new(booking_params)
-
+    @booking = Booking.new(booking_params)
+    if @booking.save
+      #@booking.passengers.each { |p| PassengerMailer.thank_you_email(p).deliver! }
+      redirect_to booking_path(@booking)
+    else
+      render 'new'
+    end
   end
+
+
 
   private
    def booking_params
