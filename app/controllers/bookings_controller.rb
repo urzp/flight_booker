@@ -4,9 +4,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.flight = @flight
     @booking.date = params[:date]
-     params[:tikets].to_i.times do
-      #@booking.passenger = Passanger.new
-    end
+     @count_passangers = params[:tikets].to_i
+      #@booking.passengers.build
+
     puts " params  #{params} "
   end
 
